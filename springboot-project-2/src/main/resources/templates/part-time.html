@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Part Time Course Registration Form</title>
+</head>
+<body>
+
+
+  <!--  <div th:if="${param.success}">
+     <div class="alert alert-info">You've successfully registered
+      to PartTime Course!</div>
+    </div>   
+ -->
+	<h1>Registration for Part Time Courses</h1> 
+	<br>
+	<form th:action="@{/partTimeRegistration}" method="post" th:object="${partTimeCourse}">
+	<label> Name:</label>
+	<input id="name" th:field="*{name}" required autofocus="autofocus" 
+	 				   placeholder="Enter your Name"/>	<br><br>
+	
+	<label>Course Name:</label>
+	<!-- <input id="courseName" th:field="*{courseName}" required autofocus="autofocus"
+	 				   placeholder="Enter course name"/>	<br>
+	 -->
+	 <div>
+        <input type="radio" th:field="*{courseName}" th:value="'CyberSecurity Certification'" >
+        <label th:for="${#ids.prev('courseName')}">CyberSecurity Certification</label>
+    </div>
+    <div>
+        <input type="radio" th:field="*{courseName}" th:value="'Ethical Hacking'">
+        <label th:for="${#ids.prev('courseName')}">Ethical Hacking</label>
+    </div>
+    <div>
+        <input type="radio" th:field="*{courseName}" th:value="'Human Resource Management'">
+        <label th:for="${#ids.prev('courseName')}">Human Resource Management</label>
+    </div>
+	 
+	 <br><br>
+	 
+	 <!--  <label>Duration:</label>	   -->  
+<!-- 	<input id="duration" th:field="*{duration}" required autofocus="autofocus" readonly="readonly"
+	 				   placeholder="Duration"/> <br>
+ -->
+ 	 <label>Duration</label>
+	 <div>
+        <input type="radio" th:field="*{duration}" th:value="'2 years'" >
+        <label th:for="${#ids.prev('duration')}">2 years</label>
+    </div>
+    <div>
+        <input type="radio" th:field="*{duration}" th:value="'3 years'" >
+        <label th:for="${#ids.prev('duration')}">3 years</label>
+    </div>
+    
+    <br><br>
+	<label>Percentage of  Highest Qualification:</label> 	
+	<input id="percentage" th:field="*{percentage}" required autofocus="autofocus"
+	 				   placeholder="Enter your percentage"/>	<br><br>
+	 				   
+    <button type="submit" >Register</button><br><br>
+    <span>Go Back to previous page? <a href="/" th:href="@{/showForm}" >Home </a></span>	 
+	
+	
+	</form>
+
+</body>
+</html>

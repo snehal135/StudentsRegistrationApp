@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Form and Login App</title>
+</head>
+<body>
+
+
+  
+
+	<h1>Students Login Page</h1>
+	<form th:action="@{/login}" method="post">
+	
+	 <div th:if="${param.error}">
+      <div class="alert alert-danger">Invalid username or
+       password.</div>
+     </div>
+    
+     <!-- logout message -->
+     <div th:if="${param.logout}">
+      <div class="alert alert-info">You have been logged out.</div>
+     </div>
+	
+	
+	<!-- <label>User Name:</label>
+	<input id="username"  autofocus="autofocus"
+	 				   placeholder="Enter your Email id"/>	<br>
+	 -->
+	 <label for ="username"> Username </label> :
+      <input type="text"  id ="username" name = "username"
+      placeholder="Enter Email ID" autofocus="autofocus">
+     
+	 
+	 <!--  <label>Password</label>	    
+	<input id="password" type= "password"  autofocus="autofocus"
+	 				   placeholder="Enter your password"/> <br>
+	  -->
+ 		
+ 		<label for="password">Password</label>: <input type="password"
+       id="password" name="password" 
+       placeholder="Enter Password" />
+     
+ 				   
+    <button type="submit" >Login</button>
+    <span>New user ? <a href="/" th:href="@{/registration}" >Register here </a></span>	 
+	
+	
+	</form>
+
+</body>
+</html>

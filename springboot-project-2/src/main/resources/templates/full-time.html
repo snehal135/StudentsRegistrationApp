@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Full Time Course Registration Form</title>
+</head>
+<body>
+
+
+   <!-- <div th:if="${param.success}">
+     <div class="alert alert-info">You've successfully registered
+      to FullTime Course!</div>
+    </div>   
+ -->
+	<h1>Registration for Full Time Course</h1>
+	<form th:action="@{/fullTimeRegistration}" method="post" th:object="${fullTimeCourse}">
+	<label>Name:</label>
+	<input id="name" th:field="*{name}" required autofocus="autofocus"
+	 				   placeholder="Enter your Name"/>	<br><br>
+	
+	
+	<label>Course Name:</label>
+	<!-- <input id="courseName" th:field="*{courseName}" required autofocus="autofocus"
+	 				   placeholder="Course Name"/>	<br>
+	 -->  
+<!-- 	 <select th:field="*{dropdownSelectedValue}">
+  <option 
+      th:each="dropdownValue: ${singleSelectAllValues}"
+      th:value="${dropdownValue}"
+      th:text="${dropdownValue}" ></option>
+</select>
+ -->
+	 <div>
+        <input type="radio" th:field="*{courseName}" th:value="'Data Science'" >
+        <label th:for="${#ids.prev('courseName')}">Data Science </label>
+    </div>
+    <div>
+        <input type="radio" th:field="*{courseName}" th:value="'Master of Communication & Media'">
+        <label th:for="${#ids.prev('courseName')}">Master of Communication and Media</label>
+    </div>
+    <div>
+        <input type="radio" th:field="*{courseName}" th:value="MBA">
+        <label th:for="${#ids.prev('courseName')}">MBA</label>
+    </div>
+	 
+	 <br><br>
+	<!-- <label>Duration:</label>	    
+	<input id="duration" th:value = "${fullTimeCourse.duration}" th:field="*{duration}" required autofocus="autofocus" 
+	 			readonly="readonly"	/> <br>
+	 --> 
+	 <label>Duration</label>
+	 <div>
+        <input type="radio" th:field="*{duration}" th:value="'1 year'" >
+        <label th:for="${#ids.prev('duration')}">1 year</label>
+    </div>
+    <div>
+        <input type="radio" th:field="*{duration}" th:value="'2 years'" >
+        <label th:for="${#ids.prev('duration')}">2 year</label>
+    </div>
+    
+	 <br><br>
+	 
+	<label>IELTS Score:</label> 	
+	<input id="ieltsScore" th:field="*{ieltsScore}" required autofocus="autofocus"
+	 				   placeholder="Enter your score"/>	<br> <br>
+	 				   
+    <button type="submit" >Register</button><br><br>
+    <span>Go Back to previous page? <a href="/" th:href="@{/showForm}" >Home</a></span>	 
+	
+	
+	</form>
+
+</body>
+</html>

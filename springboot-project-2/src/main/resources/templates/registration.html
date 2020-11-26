@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Form</title>
+</head>
+<body>
+
+
+   <div th:if="${param.success}">
+     <div class="alert alert-info">You've successfully registered
+      to our awesome app!</div>
+    </div>
+   
+
+	<h1>Registration</h1>
+	<form th:action="@{/registration}" method="post" th:object="${user}">
+	<label>First Name:</label>
+	<input id="firstName" th:field="*{firstName}" required autofocus="autofocus"
+	 				   placeholder="First Name"/>	<br>
+	 <label>Last Name</label>	    
+	<input id="lastName" th:field="*{lastName}" required autofocus="autofocus"
+	 				   placeholder="Last Name"/> <br>
+	 
+	<label>Email:</label> 	
+	<input id="email" th:field="*{email}" required autofocus="autofocus"
+	 				   placeholder="Email"/>	<br>
+	<label> Password:</label>				   
+	<input id="password" type="password" th:field="*{password}" required autofocus="autofocus"
+	 				   placeholder="Password"/>	<br>
+	 				   
+    <button type="submit" >Register</button>
+    <span>Already Registered? <a href="/" th:href="@{/login}" >Login here </a></span>	 
+	
+	
+	</form>
+
+</body>
+</html>

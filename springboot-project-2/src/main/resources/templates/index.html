@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+ xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+
+<head>
+<meta charset="ISO-8859-1">
+<title>Registration Form and Login App</title>
+
+
+</head>
+<body>
+   <!--  <ul>
+        <li sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></li>
+   </ul> -->  
+   
+    
+        <div align="right" sec:authorize="isAuthenticated()"><a th:href="@{/logout}">Logout</a></div>
+   
+      
+  <div th:if="${param.success}">
+     <div class="alert alert-info">You've successfully registered
+      to the Course!</div>
+    </div>   
+  
+<h1>Registration For Courses</h1>
+<br>
+  Welcome <span sec:authentication="principal.username"> User</span>
+ <br>
+ <br>
+ <h2>Please select the course you want to register</h2>
+ 
+ <a th:href="@{showFormForPartTime}">Add PartTime Course</a>
+<br><br>
+<a th:href="@{showFormForFullTime}">Add FullTime Course</a>
+ 
+</body>
+</html>
